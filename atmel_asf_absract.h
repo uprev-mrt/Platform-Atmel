@@ -1,6 +1,6 @@
 /**
-  *@file atmel_start_abstract.h
-  *@brief Abstraction header for Atmel MCUs using the Atmel Start framework
+  *@file atmel_asf_abstract.h
+  *@brief Abstraction header for Atmel MCUs using the ASF framework
   *@author Jason Berger
   *@date 2/18/2019
   */
@@ -11,7 +11,7 @@
  extern "C" {
 #endif
 
-#include <atmel_start.h>
+#include <asf.h>
 
 #ifdef __cplusplus
  }
@@ -19,6 +19,7 @@
  {
 #endif
 
+/*
 //Delay Abstraction
 #define MRT_DELAY_MS(ms) delay_ms(ms)
 
@@ -51,6 +52,8 @@ typedef spi_m_sync_descriptor* mrt_spi_handle_t;
 
 //printf
 #define MRT_PRINTF(f_, ...) printf((f_), __VA_ARGS__)
+
+*/
 
 #ifdef __cplusplus
  }
