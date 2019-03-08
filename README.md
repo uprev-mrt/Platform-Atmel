@@ -1,4 +1,7 @@
 # Atmel ASF
+>Requires: Modules/Platforms/Common
+
+
 To use with an atmel asf project, include the Mr T repo as a submodule of the project in src/mrt .
 
 1. Click the 'Show All files' button in the solution explorer
