@@ -10,13 +10,14 @@
 #include <atmel_start.h>
 
 
+
 //Delay Abstraction
 #define MRT_DELAY_MS(ms) delay_ms(ms)
 
 //Uart Abstraction
-/*typedef io_descriptor* mrt_uart_handle_t;
+typedef struct io_descriptor* mrt_uart_handle_t;
 #define MRT_UART_TX(handle, data, len, timeout) io_write(handle, data, len)
-#define MRT_UART_RX(handle, data, len, timeout) io_read(handle, data, len)*/
+#define MRT_UART_RX(handle, data, len, timeout) io_read(handle, data, len)
 
 //GPIO Abstraction
 typedef uint8_t mrt_gpio_t;
@@ -34,21 +35,16 @@ typedef enum gpio_port mrt_gpio_port_t;
 	#define MRT_I2C_MASTER_RECEIVE(handle ,addr, data, len, stop, timeout)
 	#define MRT_I2C_MEM_WRITE(handle, addr, mem_addr, mem_size, data, len, timeout ) i2c_m_sync_cmd_write(handle, mem_addr, data, len)
 	#define MRT_I2C_MEM_READ(handle, addr, mem_addr, mem_size, data, len, timeout ) i2c_m_sync_cmd_read(handle, mem_addr, data, len)
-#endif
+#endif*/
 
 //SPI Abstraction
-typedef spi_m_sync_descriptor* mrt_spi_handle_t;
+typedef struct io_descriptor* mrt_spi_handle_t;
 typedef int32_t mrt_spi_status_t;
-#define MRT_SPI_TRANSFER(handle ,tx, rx ,len, timeout)       \
-                          struct spi_xfer xfer = {           \
-                          .txbuf =tx,                        \
-                          .rxbuf =rx,                        \
-                          .size = len,                       \
-                          };                                 \
-                          spi_m_sync_transfer(handle, &xfer);
-*/
+//mrt_spi_status_t MRT_SPI_TRANSFER(mrt_spi_handle_t handle , uint8_t* x, uint8_t* rx , len, timeout);
+#define MRT_SPI_TRANSFER(handle ,tx, rx ,len, timeout)  io_write(handle, tx, len)
+#define MRT_SPI_TRANSMIT(handle, tx, len, timeout) io_write(handle, tx, len)
+#define MRT_SPI_RECIEVE(handle, tx, len, timeout) spi_m_sync_transfer(handle, &((struct spi_xfer){tx,tx,len}))
+
 
 //printf
 #define MRT_PRINTF(f_, ...) printf((f_), __VA_ARGS__)
-
-
