@@ -31,9 +31,9 @@ typedef enum gpio_port mrt_gpio_port_t;
 typedef struct i2c_m_sync_desc* mrt_i2c_handle_t;
 typedef int32_t mrt_i2c_status_t;
 typedef struct _i2c_m_msg mrt_i2c_msg;
-void atmel_start_i2c_transmist(mrt_i2c_handle_t handle, uint8_t addr, uint8_t* data, uint8_t len, bool stop );
+void atmel_start_i2c_transmit(mrt_i2c_handle_t handle, uint8_t addr, uint8_t* data, uint8_t len, bool stop );
 
-#define MRT_I2C_MASTER_TRANSMIT(handle ,addr,data,len, stop, timeout)	atmel_start_i2c_transmist(handle ,addr,data,len, stop)
+#define MRT_I2C_MASTER_TRANSMIT(handle ,addr,data,len, stop, timeout)	atmel_start_i2c_transmit(handle ,addr,data,len, stop)
 
 //#define MRT_I2C_MASTER_RECEIVE(handle ,addr, data, len, stop, timeout)
 #define MRT_I2C_MEM_WRITE(handle, addr, mem_addr, mem_size, data, len, timeout ) i2c_m_sync_set_slaveaddr(handle,addr, I2C_M_SEVEN); \
