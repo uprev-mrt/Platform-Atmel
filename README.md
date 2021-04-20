@@ -1,4 +1,4 @@
-# Atmel Platform
+# Atmel
 >Requires: Modules/Platforms/Common
 
 
