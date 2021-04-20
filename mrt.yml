@@ -1,0 +1,5 @@
+---
+name: ESP32
+description: Abstraction layer for ESP32 series MCUs
+category: Platform
+requires: [Platform]
